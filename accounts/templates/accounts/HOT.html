@@ -1,0 +1,267 @@
+{% extends 'base.html'%}
+{% block content %}
+
+
+<div class="card">
+    
+    <div class="card-body">
+        <h5 class="card-title">basic_forms(un-verified)</h5>
+      
+        <!-- List group with Links and buttons -->
+        <div class="list-group">
+          
+          {% for objects in basic_forms %}
+          {% if objects.verified_hot == False and objects.rejected == False %}
+          <a href = "{% url 'table1:update1' objects.id %}" type="button" class="list-group-item list-group-item-action">
+            {{objects.user}}
+          </a>
+          {% endif %}
+          {% endfor %}
+       </div><!-- End List group with Links and buttons -->
+  
+    </div>
+
+    <div class="card-body">
+
+      
+        <h5 class="card-title">basic_info(un-verified)</h5>
+
+      <!-- List group with Links and buttons -->
+      <div class="list-group">
+        
+        {% for objects in basic_info %}
+        {% if objects.verified_hot == False and objects.rejected == False %}
+        <a href = "{% url 'table2:update2' objects.id %}" type="button" class="list-group-item list-group-item-action">
+          {{objects.user}}
+        </a>
+        {% endif %}
+        {% endfor %}
+     </div><!-- End List group with Links and buttons -->
+    </div>
+    
+     <div class="card-body">
+      {% if tna.count > 0 %}
+        <h5 class="card-title">TNA(un-verified)</h5>
+      {% endif %}
+
+      <!-- List group with Links and buttons -->
+      <div class="list-group">
+        
+        {% for objects in tna %}
+        {% if objects.verified_hot == False and objects.rejected == False %}
+        <a href = "{% url 'table3:update3' objects.id %}" type="button" class="list-group-item list-group-item-action">
+          {{objects.user}}
+        </a>
+        {% endif %}
+        {% endfor %}
+     </div><!-- End List group with Links and buttons -->
+    </div>
+
+    <div class="card-body">
+      {% if ttpd.count > 0 %}
+        <h5 class="card-title">TTPD(un-verified)</h5>
+      {% endif %}
+
+      <!-- List group with Links and buttons -->
+      <div class="list-group">
+        
+        {% for objects in ttpd %}
+        {% if objects.verified_hot == False and objects.rejected == False %}
+        <a href = "{% url 'table4:update4' objects.id %}" type="button" class="list-group-item list-group-item-action">
+          {{objects.user}}
+        </a>
+        {% endif %}
+        {% endfor %}
+     </div><!-- End List group with Links and buttons -->
+    </div>
+
+    <div class="card-body">
+      {% if stp.count > 0 %}
+        <h5 class="card-title">STP(un-verified)</h5>
+      {% endif %}
+
+      <!-- List group with Links and buttons -->
+      <div class="list-group">
+        
+        {% for objects in stp %}
+        {% if objects.verified_hot == False and objects.rejected == False %}
+        <a href = "{% url 'table5:update5' objects.id %}" type="button" class="list-group-item list-group-item-action">
+          {{objects.user}}
+        </a>
+        {% endif %}
+        {% endfor %}
+     </div><!-- End List group with Links and buttons -->
+    </div>
+
+    <div class="card-body">
+      {% if dtpa.count > 0 %}
+        <h5 class="card-title">DTPA(un-verified)</h5>
+      {% endif %}
+
+      <!-- List group with Links and buttons -->
+      <div class="list-group">
+        
+        {% for objects in dtpa %}
+        {% if objects.verified_hot == False and objects.rejected == False %}
+        <a href = "{% url 'table6:update6' objects.id %}" type="button" class="list-group-item list-group-item-action">
+          {{objects.user}}
+        </a>
+        {% endif %}
+        {% endfor %}
+     </div><!-- End List group with Links and buttons -->
+    </div>
+
+    <div class="card-body">
+      {% if stp2.count > 0 %}
+        <h5 class="card-title">STP2(un-verified)</h5>
+      {% endif %}
+
+      <!-- List group with Links and buttons -->
+      <div class="list-group">
+        
+        {% for objects in stp2 %}
+        {% if objects.verified_hot == False and objects.rejected == False %}
+        <a href = "{% url 'table7:update7' objects.id %}" type="button" class="list-group-item list-group-item-action">
+          {{objects.user}}
+        </a>
+        {% endif %}
+        {% endfor %}
+     </div><!-- End List group with Links and buttons -->
+    </div>
+
+    <div class="card-body">
+      {% if utp.count > 0 %}
+        <h5 class="card-title">UTP(un-verified)</h5>
+      {% endif %}
+
+      <!-- List group with Links and buttons -->
+      <div class="list-group">
+        
+        {% for objects in utp %}
+        {% if objects.verified_hot == False and objects.rejected == False %}
+        <a href = "{% url 'table8:update8' objects.id %}" type="button" class="list-group-item list-group-item-action">
+          {{objects.user}}
+        </a>
+        {% endif %}
+        {% endfor %}
+     </div><!-- End List group with Links and buttons -->
+    </div>
+
+    <div class="card-body">
+      {% if ndtp.count > 0 %}
+        <h5 class="card-title">NDTP(un-verified)</h5>
+      {% endif %}
+
+      <!-- List group with Links and buttons -->
+      <div class="list-group">
+        
+        {% for objects in ndtp %}
+        {% if objects.verified_hot == False and objects.rejected == False %}
+        <a href = "{% url 'table9:update9' objects.id %}" type="button" class="list-group-item list-group-item-action">
+          {{objects.user}}
+        </a>
+        {% endif %}
+        {% endfor %}
+     </div><!-- End List group with Links and buttons -->
+    </div>
+
+    <div class="card-body">
+      {% if ndtp.count > 0 %}
+        <h5 class="card-title">NDTP(un-verified)</h5>
+      {% endif %}
+
+      <!-- List group with Links and buttons -->
+      <div class="list-group">
+        
+        {% for objects in ndtp %}
+        {% if objects.verified_hot == False and objects.rejected == False %}
+        <a href = "{% url 'table9:update9' objects.id %}" type="button" class="list-group-item list-group-item-action">
+          {{objects.user}}
+        </a>
+        {% endif %}
+        {% endfor %}
+     </div><!-- End List group with Links and buttons -->
+    </div>
+
+    <div class="card-body">
+      {% if section.count > 0 %}
+        <h5 class="card-title">section(un-verified)</h5>
+      {% endif %}
+
+      <!-- List group with Links and buttons -->
+      <div class="list-group">
+        
+        {% for objects in section %}
+        {% if objects.verified_hot == False and objects.rejected == False %}
+        <a href = "{% url 'table10:update10' objects.id %}" type="button" class="list-group-item list-group-item-action">
+          {{objects.user}}
+        </a>
+        {% endif %}
+        {% endfor %}
+     </div><!-- End List group with Links and buttons -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    
+  </div>
+
+    <div class="card-body">
+        <h5 class="card-title">rejected</h5>
+  
+        <!-- List group with Links and buttons -->
+        <div class="list-group">
+          
+          {% for objects in basic_forms %}
+          {% if objects.rejected == True %}
+          <a href = "{% url 'table1:update1' objects.id %}" type="button" class="list-group-item list-group-item-action">
+            {{objects.user}}
+          </a>
+          {% endif %}
+          {% endfor %}
+       </div><!-- End List group with Links and buttons -->
+       <div class="list-group">
+          
+        {% for objects in basic_info %}
+        {% if objects.rejected == True %}
+        <a href = "{% url 'table2:update2' objects.id %}" type="button" class="list-group-item list-group-item-action">
+          {{objects.user}}
+        </a>
+        {% endif %}
+        {% endfor %}
+     </div><!-- End List group with Links and buttons -->
+
+     <div class="list-group">
+          
+      {% for objects in tna %}
+      {% if objects.rejected == True %}
+      <a href = "{% url 'table3:update3' objects.id %}" type="button" class="list-group-item list-group-item-action">
+        {{objects.user}}
+      </a>
+      {% endif %}
+      {% endfor %}
+   </div><!-- End List group with Links and buttons -->
+
+   <div class="list-group">
+          
+    {% for objects in ttpd %}
+    {% if objects.rejected == True %}
+    <a href = "{% url 'table4:update4' objects.id %}" type="button" class="list-group-item list-group-item-action">
+      {{objects.user}}
+    </a>
+    {% endif %}
+    {% endfor %}
+ </div><!-- End List group with Links and buttons -->
+  
+    </div>
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Advanced Content</h5>
+      
+
+      <!-- List group with Advanced Contents -->
+      
+      <div class="list-group">
+        {% for objects in stp %}
+        <a href="{% url 'table1:formDetail' objects.pk %}" class="list-group-item list-group-item-action " aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{objects.Area_Office}}</h5>
+            <small>{{objects.name}}</small>
+          </div>
+          <p class="mb-1">{{objects.category}}</p>
+          <small>{{objects.Month_of_report}}</small>
+        </a>
+        {% endfor %}
+      </div><!-- End List group Advanced Content -->
+
+    </div>
+  </div>
+
+
+
+
+{% endblock content %}
+
+
+
+
+

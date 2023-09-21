@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load widget_tweaks %}
+<section>
+    <!-- Floating Labels Form -->
+    <form class="row g-3" method="">
+        <div class="col-md-12">
+          <div class="form-floating">
+            <input type="name" class="form-control" id="floatingName" value = "{{basic_forms.name}}">
+            <label for="floatingName">Your Name</label>
+        </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingEmail" value = "{{basic_forms.Department}}">
+            <label for="floatingEmail">Department</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingPassword" value = "{{basic_forms.Directors_name}}">
+            <label for="floatingPassword">Directors Name</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+              <input type="email" class="form-control" id="floatingPassword" value = "{{basic_forms.Team_leader}}">
+              <label for="floatingPassword">Team Leader</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingZip" value = "{{basic_forms.Number_of_TDOS_Department}}">
+              <label for="floatingZip">number of TDOs Department</label>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingSelect" value = "{{basic_forms.Month_of_Report}}">
+              <label for="floatingSelect">Month of Report</label>
+            </div>
+          </div>
+        <div class="col-12">
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingTextarea" value = "{{basic_forms.Division}}">
+            <label for="floatingTextarea">Division</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="col-md-12">
+            <div class="form-floating">
+              <input type="email" class="form-control" id="floatingCity" value = "{{basic_forms.Number_of_TDOS_Team}}">
+              <label for="floatingCity">Number of TDOs Team </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingSelect" value = "{{basic_forms.Deignation}}">
+            <label for="floatingSelect">Designation</label>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingZip" value = "{{basic_forms.date}}">
+            <label for="floatingZip">date</label>
+          </div>
+        </div>
+        <div class="text-center">
+          <button href = "" type="submit" class="btn btn-primary">User Profile</button>
+          <button type="reset" class="btn btn-secondary">sth else</button>
+        </div>
+      </form><!-- End floating Labels Form -->
+    
+    </section>
+
+
+
+
+{% endblock content %}
+
+
+
+
+

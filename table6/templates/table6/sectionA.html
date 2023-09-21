@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load widget_tweaks %}
+
+<section>
+<!-- Floating Labels Form -->
+<form class="row g-3" method="post">
+    {% csrf_token %}
+    <div class="col-md-12">
+        <div class="form-floating">
+          {{form.NTAC|add_class:'form-control'|attr:'value:request.user'}}
+          {{form.NTAC.errors}}  
+          <label for="floatingName">NTAC</label>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-floating">
+        {{form.monthly|add_class:'form-control'|attr:'id:floatingName'}}
+        {{form.monthly.errors}}  
+        <label for="floatingName">monthly</label>
+    </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.achieve_per|add_class:'form-control'|attr:'id:floatingEmail'}}
+        {{form.achieve_per.errors}}
+        <label for="floatingEmail">achieve_per</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.target|add_class:'form-control'|attr:'id:floatingEmail'}}
+        {{form.target.errors}}
+        <label for="floatingEmail">target</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.remarks|add_class:'form-control'|attr:'id:floatingPassword'}}
+        {{form.remarks.errors}}
+        <label for="floatingPassword">remarks</label>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-12">
+      <div class="form-floating">
+        {{form.NTPD|add_class:'form-control'|attr:'value:request.user'}}
+        {{form.NTPD.errors}}  
+        <label for="floatingName">NTPD</label>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-floating">
+      {{form.monthly2|add_class:'form-control'|attr:'id:floatingName'}}
+      {{form.monthly2.errors}}  
+      <label for="floatingName">monthly2</label>
+  </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-floating">
+      {{form.achieve_per2|add_class:'form-control'|attr:'id:floatingEmail'}}
+      {{form.achieve_per2.errors}}
+      <label for="floatingEmail">achieve_per2</label>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="form-floating">
+      {{form.target2|add_class:'form-control'|attr:'id:floatingEmail'}}
+      {{form.target2.errors}}
+      <label for="floatingEmail">target2</label>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="form-floating">
+      {{form.remarks2|add_class:'form-control'|attr:'id:floatingPassword'}}
+      {{form.remarks2.errors}}
+      <label for="floatingPassword">remarks2</label>
+    </div>
+  </div>
+
+
+  
+  <div class="col-md-12">
+    <div class="form-floating">
+      {{form.NTPI|add_class:'form-control'|attr:'value:request.user'}}
+      {{form.NTPI.errors}}  
+      <label for="floatingName">NTPI</label>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="form-floating">
+    {{form.monthly3|add_class:'form-control'|attr:'id:floatingName'}}
+    {{form.monthly3.errors}}  
+    <label for="floatingName">monthly3</label>
+</div>
+</div>
+<div class="col-md-6">
+  <div class="form-floating">
+    {{form.achieve_per3|add_class:'form-control'|attr:'id:floatingEmail'}}
+    {{form.achieve_per3.errors}}
+    <label for="floatingEmail">achieve_per3</label>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="form-floating">
+    {{form.target3|add_class:'form-control'|attr:'id:floatingEmail'}}
+    {{form.target3.errors}}
+    <label for="floatingEmail">target3</label>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="form-floating">
+    {{form.remarks3|add_class:'form-control'|attr:'id:floatingPassword'}}
+    {{form.remarks3.errors}}
+    <label for="floatingPassword">remarks3</label>
+  </div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="form-floating">
+    {{form.NTPS|add_class:'form-control'|attr:'value:request.user'}}
+    {{form.NTPS.errors}}  
+    <label for="floatingName">NTPS</label>
+</div>
+</div>
+<div class="col-md-12">
+<div class="form-floating">
+  {{form.monthly4|add_class:'form-control'|attr:'id:floatingName'}}
+  {{form.monthly4.errors}}  
+  <label for="floatingName">monthly4</label>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-floating">
+  {{form.achieve_per4|add_class:'form-control'|attr:'id:floatingEmail'}}
+  {{form.achieve_per4.errors}}
+  <label for="floatingEmail">achieve_per4</label>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="form-floating">
+  {{form.target4|add_class:'form-control'|attr:'id:floatingEmail'}}
+  {{form.target4.errors}}
+  <label for="floatingEmail">target4</label>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="form-floating">
+  {{form.remarks4|add_class:'form-control'|attr:'id:floatingPassword'}}
+  {{form.remarks4.errors}}
+  <label for="floatingPassword">remarks4</label>
+</div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="form-floating">
+    {{form.AGTP|add_class:'form-control'|attr:'value:request.user'}}
+    {{form.AGTP.errors}}  
+    <label for="floatingName">AGTP</label>
+</div>
+</div>
+<div class="col-md-12">
+<div class="form-floating">
+  {{form.monthly5|add_class:'form-control'|attr:'id:floatingName'}}
+  {{form.monthly5.errors}}  
+  <label for="floatingName">monthly5</label>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-floating">
+  {{form.achieve_per5|add_class:'form-control'|attr:'id:floatingEmail'}}
+  {{form.achieve_per5.errors}}
+  <label for="floatingEmail">achieve_per5</label>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="form-floating">
+  {{form.target5|add_class:'form-control'|attr:'id:floatingEmail'}}
+  {{form.target5.errors}}
+  <label for="floatingEmail">target5</label>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="form-floating">
+  {{form.remarks5|add_class:'form-control'|attr:'id:floatingPassword'}}
+  {{form.remarks5.errors}}
+  <label for="floatingPassword">remarks5</label>
+</div>
+</div>
+        
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Next</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+  </form><!-- End floating Labels Form -->
+
+</section>
+{% endblock content %}
+
+
+

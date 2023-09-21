@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks%}
+{% if page == "basicform(update)" %}
+                    
+<section>
+    <!-- Floating Labels Form -->
+    <form class="row g-3" method="post">
+        {% csrf_token %}
+        <div class="col-md-12">
+            <div class="form-floating">
+              {{form.user|add_class:'form-control'|attr:'value:request.user'}}
+              {{form.user.errors}}  
+              <label for="floatingName">Your Name</label>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-floating">
+            {{form.name|add_class:'form-control'|attr:'id:floatingName'}}
+            {{form.name.errors}}  
+            <label for="floatingName">Your Name</label>
+        </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-floating">
+            {{form.Department|add_class:'form-control'|attr:'id:floatingEmail'}}
+            {{form.Department.errors}}
+            <label for="floatingEmail">Department</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-floating">
+            {{form.Directors_name|add_class:'form-control'|attr:'id:floatingPassword'}}
+            {{form.Directors_name.errors}}
+            <label for="floatingPassword">Directors Name</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+              {{form.Team_leader|add_class:'form-control'|attr:'id:floatingPassword'}}
+              {{form.Team_leader.errors}}
+              <label for="floatingPassword">Team Leader</label>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-floating">
+                {{form.Number_of_TDOS_Department|add_class:'form-control'|attr:'id:floatingZip'}}
+                {{form.Number_of_TDOS_Department.errors}}
+              <label for="floatingZip">number of TDOs Department</label>
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="form-floating mb-3">
+              {{form.Month_of_Report|add_class:'form-control'|attr:'id:floatingSelect'}}
+              {{form.Month_of_Report.errors}}
+              <label for="floatingSelect">Month of Report</label>
+            </div>
+          </div>
+        <div class="col-12">
+          <div class="form-floating">
+            {{form.Division|add_class:'form-control'|attr:'id:floatingSelect'}}
+            {{form.Division.errors}}
+            <label for="floatingTextarea">Division</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="col-md-12">
+            <div class="form-floating">
+                {{form.Number_of_TDOS_Team|add_class:'form-control'|attr:'id:floatingCity'}}
+                {{form.Number_of_TDOS_Team.errors}}
+              <label for="floatingCity">Number of TDOs Team </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-floating mb-3">
+            {{form.Deignation|add_class:'form-control'|attr:'id:floatingSelect'}}
+            {{form.Deignation.errors}}
+            <label for="floatingSelect">Designation</label>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-floating">
+            {{form.date|add_class:'form-control'|attr:'id:floatingZip'}}
+            {{form.date.errors}}
+            <label for="floatingZip">date</label>
+          </div>
+        </div>
+
+        {% if request.user.is_HOT == True %}
+         <div class="form-check">
+            {{form.verified_hot|add_class:'form-check-input'|attr:'id:gridCheck1'}}  
+            {{form.verified_hot.errors}} 
+            <label class="form-check-label" for="gridCheck1">
+                HOT Verification
+            </label>
+          </div>
+        {% endif %}
+
+        {% if request.user.is_HOT == True or request.user.is_TDO == True %}
+          <div class="form-check">
+            {{form.rejected|add_class:'form-check-input'|attr:'id:gridCheck2'}}  
+            {{form.rejected.errors}} 
+            <label class="form-check-label" for="gridCheck2">
+              (Rejected)HOT
+            </label>
+          </div>
+        {% endif %}
+
+        {% if request.user.is_AreaManager == True %}
+          <div class="form-check">
+            {{form.verified_manager|add_class:'form-check-input'|attr:'id:gridCheck1'}}  
+            {{form.verified_manager.errors}} 
+            <label class="form-check-label" for="gridCheck1">
+                Area Manager
+            </label>
+          </div>
+        {% endif %}
+
+        {% if request.user.is_AreaManager == True or request.user.is_TDO == True %}
+          <div class="form-check">
+            {{form.rejected2|add_class:'form-check-input'|attr:'id:gridCheck1'}}  
+            {{form.rejected2.errors}} 
+            <label class="form-check-label" for="gridCheck1">
+                (Rejected)Area Manager
+            </label>
+          </div>
+        {% endif %}
+  
+        {% if request.user.is_CDN == True %}
+        <div class="form-check">
+            {{form.approved|add_class:'form-check-input'|attr:'id:gridCheck2'}}  
+            {{form.approved.errors}} 
+            <label class="form-check-label" for="gridCheck2">
+                Approved
+            </label>
+          </div>
+        {% endif %}
+ 
+        <div class="text-center">
+          <button href = "" type="submit" class="btn btn-primary">Next</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+      </form><!-- End floating Labels Form -->
+    
+    </section>
+{% endif %}
+{% endblock content %}

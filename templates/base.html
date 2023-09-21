@@ -1,0 +1,448 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Components / Accordion - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/logo.jpg'%}" rel="icon">
+  <link href="{% static 'assets/img/logo.jpg'%}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.snow.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.bubble.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/simple-datatables/style.css'%}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css'%}" rel="stylesheet">
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: Jul 27 2023 with Bootstrap v5.3.1
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="{% url 'landing-page' request.user.id %}" class="logo d-flex align-items-center">
+        <img src="{% static 'assets/img/logo.jpg'%}" alt="">
+        <span class="d-none d-lg-block">ITF</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number"></span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              You have new notifications
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            {% for objects in basic_forms %}
+            {% if objects.approved == True and objects.user.username == request.user.username %}
+            <li class="notification-item">
+              <i class="bi bi-exclamation-circle text-warning"></i>
+              <div>
+                <h4>{{objects.name}}</h4>
+                <p>{{objects.department}}</p>
+                <p>{{objects.Month_of_Report}}</p>
+              </div>
+            </li>
+            {% endif %}
+            {% endfor %}
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li class="dropdown-footer">
+              <a href="#">Show all notifications</a>
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-chat-left-text"></i>
+            <span class="badge bg-success badge-number">{{basic_forms.count}}</span>
+          </a><!-- End Messages Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+            <li class="dropdown-header">
+              You have new messages
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            {% for objects in basic_forms %}
+            {% if objects.rejected == True and objects.user.username == request.user.username %}
+            <li class="message-item">
+              <a href="#">
+                <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                <div>
+                  <h4>{{objects.user}}</h4>
+                  <p>{{objects.department}}</p>
+                  <p>{{objects.date}}</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            {% endif %}
+            {% endfor %}
+            
+
+            <li class="dropdown-footer">
+              <a href="#">Show all messages</a>
+            </li>
+
+          </ul><!-- End Messages Dropdown Items -->
+
+        </li><!-- End Messages Nav -->
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="{% url 'accounts:profile' request.user.id %}" data-bs-toggle="dropdown">
+            <img src="{{request.user.avatar.url}}" alt="{{request.user.id}}" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{request.user.username}}</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>{{request.user.username}}</h6>
+              <span>Web Designer</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'accounts:profile' request.user.id %}">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'accounts:help' %}">
+                <i class="bi bi-question-circle"></i>
+                <span>Need Help?</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'accounts:logout'%}">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'landing-page' request.user.id %}">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+     
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Generate a Report</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{% url 'table1:formView' %}">
+              <i class="bi bi-circle"></i><span>Basic Form</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'table2:form-view' %}">
+              <i class="bi bi-circle"></i><span>Basic Info</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{% url 'table3:form-view'%}">
+              <i class="bi bi-circle"></i><span>TNA</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'table4:form-view'%}">
+              <i class="bi bi-circle"></i><span>TTPD</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'table5:formView'%}">
+              <i class="bi bi-circle"></i><span>STP</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'table6:formView'%}">
+              <i class="bi bi-circle"></i><span>DTPA</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'table7:formView'%}">
+              <i class="bi bi-circle"></i><span>STP2</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'table8:formView'%}">
+              <i class="bi bi-circle"></i><span>UTP</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'table9:formView'%}">
+              <i class="bi bi-circle"></i><span>NDTP</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'table10:formView'%}">
+              <i class="bi bi-circle"></i><span>SectionC</span>
+            </a>
+          </li>
+
+        </ul>
+      </li><!-- End Tables Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'accounts:statistics' request.user.id %}">
+          <i class="bi bi-bar-chart"></i>
+          <span>statistics</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      {% if request.user.is_AreaManager == True or request.user.is_CDN == True or request.user.is_HOT == True  %}
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gem"></i><span>Admin Privillages</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          {% if request.user.is_HOT == True %}
+          <li>
+            <a href="{% url 'accounts:hot'%}">
+              <i class="bi bi-circle"></i><span>HOT</span>
+            </a>
+          </li>
+          {% endif %}
+
+          {% if request.user.is_AreaManager == True %}
+          <li>
+            <a href="{% url 'accounts:manager' %}">
+              <i class="bi bi-circle"></i><span>Area Manager</span>
+            </a>
+          </li>
+          {% endif %}
+
+          {% if request.user.is_CDN == True %}
+          <li>
+            <a href="{% url 'accounts:cdn'%}">
+              <i class="bi bi-circle"></i><span>CPD privilleges</span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </li><!-- End Icons Nav -->
+      {% endif %}
+      <li class="nav-heading">Pages</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'accounts:profile' request.user.id %}">
+          <i class="bi bi-person"></i>
+          <span>{{request.user.username}}</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'accounts:help'%}">
+          <i class="bi bi-question-circle"></i>
+          <span>F.A.Q</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'accounts:contact' %}">
+          <i class="bi bi-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'register'%}">
+          <i class="bi bi-card-list"></i>
+          <span>Register</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'accounts:login'%}">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Login</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{% url 'accounts:logout'%}">
+          <i class="bi bi-dash-circle"></i>
+          <span>Log Out</span>
+        </a>
+      </li><!-- End Error 404 Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " href="pages-blank.html">
+          <i class="bi bi-file-earmark"></i>
+          <span>Blank</span>
+        </a>
+      </li><!-- End Blank Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>{{page}}</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'landing-page' 'request.user.id' %}">Home</a></li>
+          <li class="breadcrumb-item">{{page}}</li>
+          <li class="breadcrumb-item active">{{page}}</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->    
+    {% block content %}
+
+    
+    {% endblock content %}
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>ITF</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/apexcharts/apexcharts.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/chart.js/chart.umd.js'%}"></script>
+  <script src="{% static 'assets/vendor/echarts/echarts.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/quill/quill.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/simple-datatables/simple-datatables.js'%}"></script>
+  <script src="{% static 'assets/vendor/tinymce/tinymce.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js'%}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js'%}"></script>
+
+</body>
+
+</html>

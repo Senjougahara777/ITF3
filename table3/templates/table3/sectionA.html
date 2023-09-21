@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load widget_tweaks %}
+
+<section>
+<!-- Floating Labels Form -->
+<form class="row g-3" method="post">
+    {% csrf_token %}
+  
+    <div class="col-md-12">
+      <div class="form-floating">
+        {{form.serial_no|add_class:'form-control'|attr:'id:floatingName'}}
+        {{form.serial_no.errors}}  
+        <label for="floatingName">serial_no</label>
+    </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.tnac|add_class:'form-control'|attr:'id:floatingEmail'}}
+        {{form.tnac.errors}}
+        <label for="floatingEmail">TNAC</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.date|add_class:'form-control'|attr:'id:floatingPassword'}}
+        {{form.date.errors}}
+        <label for="floatingPassword">Date</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-floating">
+          {{form.sector|add_class:'form-control'|attr:'id:floatingPassword'}}
+          {{form.sector.errors}}
+          <label for="floatingPassword">Sector</label>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-floating">
+            {{form.organization|add_class:'form-control'|attr:'id:floatingZip'}}
+            {{form.organization.errors}}
+          <label for="floatingZip">organization</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-floating mb-3">
+          {{form.location|add_class:'form-control'|attr:'id:floatingSelect'}}
+          {{form.location.errors}}
+          <label for="floatingSelect">location</label>
+        </div>
+      </div>
+    
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Next</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+  </form><!-- End floating Labels Form -->
+
+</section>
+{% endblock content %}
+
+
+

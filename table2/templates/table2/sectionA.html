@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load widget_tweaks %}
+
+<section>
+<!-- Floating Labels Form -->
+<form class="row g-3" method="post">
+    {% csrf_token %}
+    <div class="col-md-12">
+      <div class="form-floating">
+        {{form.name|add_class:'form-control'|attr:'id:floatingName'}}
+        {{form.name.errors}}  
+        <label for="floatingName">Your Name</label>
+    </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.Area_Office|add_class:'form-control'|attr:'id:floatingEmail'}}
+        {{form.Area_Office.errors}}
+        <label for="floatingEmail">Area Office</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.category|add_class:'form-control'|attr:'id:floatingPassword'}}
+        {{form.category.errors}}
+        <label for="floatingPassword">category</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-floating">
+          {{form.CCN|add_class:'form-control'|attr:'id:floatingPassword'}}
+          {{form.CCN.errors}}
+          <label for="floatingPassword">CCN</label>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-floating">
+            {{form.NHT|add_class:'form-control'|attr:'id:floatingZip'}}
+            {{form.NHT.errors}}
+          <label for="floatingZip">number of TDOs Department</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-floating mb-3">
+          {{form.Designation|add_class:'form-control'|attr:'id:floatingSelect'}}
+          {{form.Designation.errors}}
+          <label for="floatingSelect">Designation</label>
+        </div>
+      </div>
+    <div class="col-12">
+      <div class="form-floating">
+        {{form.NAM|add_class:'form-control'|attr:'id:floatingSelect'}}
+        {{form.NAM.errors}}
+        <label for="floatingTextarea">NAM</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-12">
+        <div class="form-floating">
+            {{form.Designation1|add_class:'form-control'|attr:'id:floatingCity'}}
+            {{form.Designation1.errors}}
+          <label for="floatingCity">Designation </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-floating mb-3">
+        {{form.Date|add_class:'form-control'|attr:'id:floatingSelect'}}
+        {{form.Date.errors}}
+        <label for="floatingSelect">Date</label>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-floating">
+        {{form.Month_of_report|add_class:'form-control'|attr:'id:floatingZip'}}
+        {{form.Month_of_report.errors}}
+        <label for="floatingZip">Month of Report</label>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Next</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+  </form><!-- End floating Labels Form -->
+
+</section>
+{% endblock content %}
+
+
+

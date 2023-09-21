@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+    <div class = "row">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Section C</h5>
+
+          <!-- Column Chart -->
+          <div id="columnChart"></div>
+
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              new ApexCharts(document.querySelector("#columnChart"), {
+                series: [{
+                  name: 'target',
+                  data: [{{dtpa.target}},{{dtpa.target2}},{{dtpa.target3}},{{dtpa.target4}},{{dtpa.target5}}]
+                }, {
+                  name: 'Achieve Percentage',
+                  data: [{{dtpa.achieve_per}}, {{dtpa.achieve_per2}}, {{dtpa.achieve_per3}}, {{dtpa.achieve_per4}}, {{dtpa.achieve_per5}}]
+                }],
+                chart: {
+                  type: 'bar',
+                  height: 350
+                },
+                plotOptions: {
+                  bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded'
+                  },
+                },
+                dataLabels: {
+                  enabled: false
+                },
+                stroke: {
+                  show: true,
+                  width: 2,
+                  colors: ['transparent']
+                },
+                xaxis: {
+                  categories: ['NTAC', 'NTPD', 'NTPI', 'NTPS', 'AGTP',],
+                },
+                yaxis: {
+                  title: {
+                    text: '$ (thousands)'
+                  }
+                },
+                fill: {
+                  opacity: 1
+                },
+                tooltip: {
+                  y: {
+                    formatter: function(val) {
+                      return val + "%"
+                    }
+                  }
+                }
+              }).render();
+            });
+          </script>
+          <!-- End Column Chart -->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">DTPA</h5>
+
+          <!-- Bar Chart -->
+          <div id="barChart"></div>
+
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              new ApexCharts(document.querySelector("#barChart"), {
+                series: [{
+                  data: [{{dtpa.target}},{{dtpa.achieve_per}}, {{dtpa.target2}},{{dtpa.achieve_per2}}, {{dtpa.target3}},{{dtpa.achieve_per3}}, {{dtpa.target4}},{{dtpa.achieve_per4}}, {{dtpa.target5}},{{dtpa.achieve_per5}}]
+                }],
+                chart: {
+                  type: 'bar',
+                  height: 350
+                },
+                plotOptions: {
+                  bar: {
+                    borderRadius: 4,
+                    horizontal: true,
+                  }
+                },
+                dataLabels: {
+                  enabled: false
+                },
+                xaxis: {
+                  categories: ['Number of TNA Conducted', 'Number of Training Progarams Developed', 'Number of Training programme implemented', 'Number of training program sourced', 'Ammount Generated from Training Programme'
+                  ],
+                }
+              }).render();
+            });
+          </script>
+          <!-- End Bar Chart -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  {% endblock content %}

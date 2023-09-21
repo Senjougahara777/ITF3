@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load widget_tweaks %}
+<section>
+    <!-- Floating Labels Form -->
+    <form class="row g-3" method="">
+        <div class="col-md-12">
+          <div class="form-floating">
+            <input type="name" class="form-control" id="floatingName" value = "{{stp2.name}}">
+            <label for="floatingName">name</label>
+        </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingEmail" value = "{{stp2.ttpi}}">
+            <label for="floatingEmail">ttpi</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingPassword" value = "{{stp2.date}}">
+            <label for="floatingPassword">date</label>
+          </div>
+        </div>
+
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="email" class="form-control" id="floatingPassword" value = "{{stp2.no_org}}">
+              <label for="floatingPassword">no_org</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="email" class="form-control" id="floatingPassword" value = "{{stp2.no_part}}">
+              <label for="floatingPassword">no_part</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="email" class="form-control" id="floatingPassword" value = "{{stp2.course_fee}}">
+              <label for="floatingPassword">course_fee</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="email" class="form-control" id="floatingPassword" value = "{{stp2.ammount}}">
+              <label for="floatingPassword">ammount</label>
+            </div>
+          </div>
+
+
+      <div class="text-center">
+          <button type="submit" class="btn btn-primary">User Profile</button>
+          <button type="reset" class="btn btn-secondary">sth else</button>
+        </div>
+      </form><!-- End floating Labels Form -->
+    
+    </section>
+
+
+
+
+{% endblock content %}
+
+
+
+
+

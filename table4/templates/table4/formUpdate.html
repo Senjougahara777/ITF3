@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load widget_tweaks %}
+
+<section>
+<!-- Floating Labels Form -->
+<form class="row g-3" method="post">
+    {% csrf_token %}
+    <div class="col-md-12">
+      <div class="form-floating">
+        {{form.user|add_class:'form-control'}}
+        {{form.user.errors}}  
+        <label for="floatingName">User</label>
+    </div>
+  </div>
+
+    <div class="col-md-12">
+        <div class="form-floating">
+          {{form.name|add_class:'form-control'|attr:'value:request.user'}}
+          {{form.name.errors}}  
+          <label for="floatingName">name</label>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-floating">
+        {{form.ttpd|add_class:'form-control'|attr:'id:floatingName'}}
+        {{form.ttpd.errors}}  
+        <label for="floatingName">ttpd</label>
+    </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.submitted|add_class:'form-control'|attr:'id:floatingEmail'}}
+        {{form.submitted.errors}}
+        <label for="floatingEmail">submitted</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.remarks|add_class:'form-control'|attr:'id:floatingPassword'}}
+        {{form.remarks.errors}}
+        <label for="floatingPassword">remarks</label>
+      </div>
+    </div>
+
+    {% if request.user.is_HOT == True %}
+    <div class="form-check">
+       {{form.verified_hot|add_class:'form-check-input'|attr:'id:gridCheck1'}}  
+       {{form.verified_hot.errors}} 
+       <label class="form-check-label" for="gridCheck1">
+           HOT Verification
+       </label>
+     </div>
+   {% endif %}
+
+   {% if request.user.is_HOT == True or request.user.is_TDO == True  %}
+     <div class="form-check">
+       {{form.rejected|add_class:'form-check-input'|attr:'id:gridCheck2'}}  
+       {{form.rejected.errors}} 
+       <label class="form-check-label" for="gridCheck2">
+         Rejected
+       </label>
+     </div>
+   {% endif %}
+
+   {% if request.user.is_AreaManager == True %}
+     <div class="form-check">
+       {{form.verified_manager|add_class:'form-check-input'|attr:'id:gridCheck1'}}  
+       {{form.verified_manager.errors}} 
+       <label class="form-check-label" for="gridCheck1">
+           Area Manager
+       </label>
+     </div>
+   {% endif %}
+
+   {% if request.user.is_AreaManager == True or request.user.is_TDO == True %}
+   <div class="form-check">
+     {{form.rejected2|add_class:'form-check-input'|attr:'id:gridCheck1'}}  
+     {{form.rejected2.errors}} 
+     <label class="form-check-label" for="gridCheck1">
+         (Rejected)Area Manager
+     </label>
+   </div>
+ {% endif %}
+
+
+   {% if request.user.is_CDN == True %}
+   <div class="form-check">
+       {{form.approved|add_class:'form-check-input'|attr:'id:gridCheck2'}}  
+       {{form.approved.errors}} 
+       <label class="form-check-label" for="gridCheck2">
+           Approved
+       </label>
+     </div>
+   {% endif %}
+        
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Next</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+  </form><!-- End floating Labels Form -->
+
+</section>
+{% endblock content %}
+
+
+

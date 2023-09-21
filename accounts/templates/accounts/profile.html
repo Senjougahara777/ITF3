@@ -1,0 +1,257 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <div class = "row">
+          <div class="col-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Basic Form</h5>
+
+                <!-- List group with Advanced Contents -->
+                <div class="list-group">
+                  {% for objects in basic_forms %}
+                  <a href="{% url 'table1:formDetail' objects.id %}" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{objects.user}}</h5>
+                      <small>{{objects.date}}</small>
+                    </div>
+                    <p class="mb-1">{{objects.Directors_name}}</p>
+                    <small>{{objects.designation}}</small>
+                  </a>
+                  {% endfor %}
+            
+                  <h5 class="card-title">TNA Conducted</h5>
+
+                  {% for objects in tna %}
+                  <a href="{% url 'table3:formDetail' objects.id %}" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{objects.user}}</h5>
+                      <small class="text-muted">{{objects.date}}</small>
+                    </div>
+                    <p class="mb-1">{{objects.organization}}</p>
+                    <small class="text-muted">{{objects.location}}</small>
+                  </a>
+                  {% endfor %}
+
+                  <h5 class="card-title">TTPD</h5>
+                  {% for objects in ttpd %}
+                  <a href="{% url 'table4:form-view' %}" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{objects.user}}</h5>
+                      <small class="text-muted">{{objects.name}}</small>
+                    </div>
+                    <p class="mb-1">{{objects.ttpd}}</p>
+                    <small class="text-muted">{{objects.submitted}}</small>
+                  </a>
+                  {% endfor %}
+
+                  <h5 class="card-title">STP</h5>
+                  {% for objects in stp %}
+                  <a href="{% url 'table5:formView' %}" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{objects.user}}</h5>
+                      <small class="text-muted">{{objects.user}}</small>
+                    </div>
+                    <p class="mb-1">{{objects.user}}</p>
+                    <small class="text-muted">{{objects.user}}</small>
+                  </a>
+                  {% endfor %}
+
+                  <h5 class="card-title">DTPA</h5>
+                  {% for objects in dtpa %}
+                  <a href="{% url 'table6:formView'%}" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{objects.user}}</h5>
+                      <small class="text-muted">{{objects.user}}</small>
+                    </div>
+                    <p class="mb-1">{{objects.user}}</p>
+                    <small class="text-muted">{{objects.user}}</small>
+                  </a>
+                  {% endfor %}
+
+                </div><!-- End List group Advanced Content -->
+
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Basic Info </h5>
+
+                <!-- List group with Advanced Contents -->
+                
+                <div class="list-group">
+                  {% for objects in basic_info %}
+                  <a href="{% url 'table2:formDetail' objects.id %}" class="list-group-item list-group-item-action " aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{objects.user}}</h5>
+                      <small>{{objects.Date}}</small>
+                    </div>
+                    <p class="mb-1">{{objects.Area_Office}}</p>
+                    <small>{{objects.Month_of_report}}</small>
+                  </a>
+                  {% endfor %}
+
+                  <h5 class="card-title">STP2</h5>
+
+                  {% for objects in stp2 %}
+                  <a href="{% url 'table7:formView'%}" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{objects.user}}</h5>
+                      <small class="text-muted">{{objects.name}}</small>
+                    </div>
+                    <p class="mb-1">{{objects.ttpi}}</p>
+                    <small class="text-muted">{{objects.course_fee}}</small>
+                  </a>
+                  {% endfor %}
+
+                  <h5 class="card-title">UTP</h5>
+                  {% for objects in utp %}
+                  <a href="{% url 'table8:formView'%}" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{objects.user}}</h5>
+                      <small class="text-muted">{{objects.user}}</small>
+                    </div>
+                    <p class="mb-1">{{objects.user}}</p>
+                    <small class="text-muted">{{objects.user}}</small>
+                  </a>
+                  {% endfor %}
+
+                  <h5 class="card-title">NDTP</h5>
+                  {% for objects in ndtp %}
+                  <a href="{% url 'table9:formView'%}" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{objects.user}}</h5>
+                      <small class="text-muted">{{objects.user}}</small>
+                    </div>
+                    <p class="mb-1">{{objects.user}}</p>
+                    <small class="text-muted">{{objects.user}}</small>
+                  </a>
+                  {% endfor %}
+
+                  <h5 class="card-title">Section</h5>
+                  {% for objects in section %}
+                  <a href="{% url 'table10:formView'%}" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1">{{objects.user}}</h5>
+                      <small class="text-muted">{{objects.user}}</small>
+                    </div>
+                    <p class="mb-1">{{objects.user}}</p>
+                    <small class="text-muted">{{objects.user}}</small>
+                  </a>
+                  {% endfor %}
+                </div><!-- End List group Advanced Content -->
+
+              </div>
+
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Rejections</h5>
+  
+                <!-- Default Tabs -->
+                <ul class="nav nav-tabs d-flex" id="myTabjustified" role="tablist">
+                  <li class="nav-item flex-fill" role="presentation">
+                    <button class="nav-link w-100 active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-justified" type="button" role="tab" aria-controls="home" aria-selected="true">Form 1</button>
+                  </li>
+                  <li class="nav-item flex-fill" role="presentation">
+                    <button class="nav-link w-100" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-justified" type="button" role="tab" aria-controls="profile" aria-selected="false">Form 2</button>
+                  </li>
+                  
+                </ul>
+                <div class="tab-content pt-2" id="myTabjustifiedContent">
+                  <div class="tab-pane fade show active" id="home-justified" role="tabpanel" aria-labelledby="home-tab">
+                      <!-- List group with Links and buttons -->
+                      <div class="list-group">
+                        {% for objects in basic_forms %}
+                        {% if objects.rejected == True or objects.rejected2 == True and objects.user.username == request.user.username %}
+                        <a type="button" href = "{% url 'table1:update1' objects.id %}" class="list-group-item list-group-item-action" aria-current="true">
+                          {{objects.user}}(basic forms)
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% for objects in basic_info %}
+                        {% if objects.rejected == True or objects.rejected2 == True and objects.user.username == request.user.username %}
+                        <a type="button" href = "{% url 'table2:update2' objects.id %}" class="list-group-item list-group-item-action">{{objects.user}}(basic info)</a>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% for objects in tna %}
+                        {% if objects.rejected == True or objects.rejected2 == True and objects.user.username == request.user.username %}
+                        <a type="button" href = "{% url 'table3:update3' objects.id %}" class="list-group-item list-group-item-action">{{objects.user}}(tna)</a>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% for objects in ttpd %}
+                        {% if objects.rejected == True or objects.rejected2 == True and objects.user.username == request.user.username %}
+                        <a type="button" href = "{% url 'table4:update4' objects.id %}" class="list-group-item list-group-item-action">{{objects.user}}(ttpd)</a>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% for objects in stp %}
+                        {% if objects.rejected == True or objects.rejected2 == True and objects.user.username == request.user.username %}
+                        <a type="button" href = "{% url 'table5:update5' objects.id %}" class="list-group-item list-group-item-action" disabled>{{objects.user}}(stp)</a>
+                        {% endif %}
+                        {% endfor %}
+                      </div>
+                      <!-- End List group with Links and buttons -->
+                  </div>
+                  <div class="tab-pane fade" id="profile-justified" role="tabpanel" aria-labelledby="profile-tab">
+                      <!-- List group with Links and buttons -->
+                      <div class="list-group">
+                        {% for objects in dtpa %}
+                        {% if objects.rejected == True or objects.rejected2 == True and objects.user.username == request.user.username %}
+                        <a type="button" href = "{% url 'table6:update6' objects.id %}" class="list-group-item list-group-item-action" aria-current="true">
+                          {{objects.user}}(dtpa)
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% for objects in stp2 %}
+                        {% if objects.rejected == True or objects.rejected2 == True and objects.user.username == request.user.username %}
+                        <a type="button" href = "{% url 'table7:update7' objects.id %}" class="list-group-item list-group-item-action">{{objects.user}}(stp2)</a>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% for objects in ndtp %}
+                        {% if objects.rejected == True or objects.rejected2 == True and objects.user.username == request.user.username %}
+                        <a type="button" href = "{% url 'table8:update8' objects.id %}" class="list-group-item list-group-item-action">{{objects.user}}(ndtp)</a>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% for objects in section %}
+                        {% if objects.rejected == True or objects.rejected2 == True and objects.user.username == request.user.username %}
+                        <a type="button" href = "{% url 'table9:update9' objects.id %}" class="list-group-item list-group-item-action">{{objects.user}}(section)</a>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% for objects in utp %}
+                        {% if objects.rejected == True or objects.rejected2 == True and objects.user.username == request.user.username %}
+                        <a type="button" href = "{% url 'table10:update10' objects.id %}" class="list-group-item list-group-item-action" disabled>{{objects.user}}(utp)</a>
+                        {% endif %}
+                        {% endfor %}
+                      </div>
+                      <!-- End List group with Links and buttons -->
+
+                  </div>
+                  
+                </div><!-- End Default Tabs -->
+  
+              </div>
+            </div>
+
+          </div>  
+        </div>
+
+
+     
+{% endblock content %}
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load widget_tweaks %}
+
+<section>
+<!-- Floating Labels Form -->
+<form class="row g-3" method="post">
+    {% csrf_token %}
+    
+    <div class="col-md-12">
+      <div class="form-floating">
+        {{form.name|add_class:'form-control'|attr:'id:floatingName'}}
+        {{form.name.errors}}  
+        <label for="floatingName">Your Name</label>
+    </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.Department|add_class:'form-control'|attr:'id:floatingEmail'}}
+        {{form.Department.errors}}
+        <label for="floatingEmail">Department</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.Directors_name|add_class:'form-control'|attr:'id:floatingPassword'}}
+        {{form.Directors_name.errors}}
+        <label for="floatingPassword">Directors Name</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-floating">
+          {{form.Team_leader|add_class:'form-control'|attr:'id:floatingPassword'}}
+          {{form.Team_leader.errors}}
+          <label for="floatingPassword">Team Leader</label>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-floating">
+            {{form.Number_of_TDOS_Department|add_class:'form-control'|attr:'id:floatingZip'}}
+            {{form.Number_of_TDOS_Department.errors}}
+          <label for="floatingZip">number of TDOs Department</label>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-floating mb-3">
+          {{form.Month_of_Report|add_class:'form-control'|attr:'id:floatingSelect'}}
+          {{form.Month_of_Report.errors}}
+          <label for="floatingSelect">Month of Report</label>
+        </div>
+      </div>
+    <div class="col-12">
+      <div class="form-floating">
+        {{form.Division|add_class:'form-control'|attr:'id:floatingSelect'}}
+        {{form.Division.errors}}
+        <label for="floatingTextarea">Division</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-12">
+        <div class="form-floating">
+            {{form.Number_of_TDOS_Team|add_class:'form-control'|attr:'id:floatingCity'}}
+            {{form.Number_of_TDOS_Team.errors}}
+          <label for="floatingCity">Number of TDOs Team </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-floating mb-3">
+        {{form.Deignation|add_class:'form-control'|attr:'id:floatingSelect'}}
+        {{form.Deignation.errors}}
+        <label for="floatingSelect">Designation</label>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-floating">
+        {{form.date|add_class:'form-control'|attr:'id:floatingZip'}}
+        {{form.date.errors}}
+        <label for="floatingZip">date</label>
+      </div>
+    </div>
+    <div class="text-center">
+      <button href = "" type="submit" class="btn btn-primary">Next</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+  </form><!-- End floating Labels Form -->
+
+</section>
+{% endblock content %}
+
+
+

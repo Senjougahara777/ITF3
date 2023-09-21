@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load widget_tweaks %}
+
+<section>
+<!-- Floating Labels Form -->
+<form class="row g-3" method="post">
+    {% csrf_token %}
+    <div class="col-md-12">
+      <div class="form-floating">
+        {{form.user|add_class:'form-control'}}
+        {{form.user.errors}}  
+        <label for="floatingName">User</label>
+    </div>
+  </div>
+
+    <div class="col-md-12">
+        <div class="form-floating">
+          {{form.name|add_class:'form-control'|attr:'value:request.user'}}
+          {{form.name.errors}}  
+          <label for="floatingName">name</label>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-floating">
+        {{form.ttpi|add_class:'form-control'|attr:'value:request.user'}}
+        {{form.ttpi.errors}}  
+        <label for="floatingttpi">ttpi</label>
+    </div>
+  </div>
+
+    <div class="col-md-12">
+      <div class="form-floating">
+        {{form.date|add_class:'form-control'|attr:'id:floatingName'}}
+        {{form.date.errors}}  
+        <label for="floatingName">date</label>
+    </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.no_org|add_class:'form-control'|attr:'id:floatingEmail'}}
+        {{form.no_org.errors}}
+        <label for="floatingEmail">no_org</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.no_part|add_class:'form-control'|attr:'id:floatingPassword'}}
+        {{form.no_part.errors}}
+        <label for="floatingPassword">no_part</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.course_fee|add_class:'form-control'|attr:'id:floatingPassword'}}
+        {{form.course_fee.errors}}
+        <label for="floatingPassword">course_fee</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating">
+        {{form.ammount|add_class:'form-control'|attr:'id:floatingPassword'}}
+        {{form.ammount.errors}}
+        <label for="floatingPassword">ammount</label>
+      </div>
+    </div>
+        
+    {% if request.user.is_HOT == True %}
+    <div class="form-check">
+       {{form.verified_hot|add_class:'form-check-input'|attr:'id:gridCheck1'}}  
+       {{form.verified_hot.errors}} 
+       <label class="form-check-label" for="gridCheck1">
+           HOT Verification
+       </label>
+     </div>
+   {% endif %}
+
+   {% if request.user.is_HOT == True or request.user.is_TDO == True  %}
+     <div class="form-check">
+       {{form.rejected|add_class:'form-check-input'|attr:'id:gridCheck2'}}  
+       {{form.rejected.errors}} 
+       <label class="form-check-label" for="gridCheck2">
+         Rejected
+       </label>
+     </div>
+   {% endif %}
+
+   {% if request.user.is_AreaManager == True %}
+     <div class="form-check">
+       {{form.verified_manager|add_class:'form-check-input'|attr:'id:gridCheck1'}}  
+       {{form.verified_manager.errors}} 
+       <label class="form-check-label" for="gridCheck1">
+           Area Manager
+       </label>
+     </div>
+   {% endif %}
+
+   {% if request.user.is_AreaManager == True or request.user.is_TDO == True  %}
+   <div class="form-check">
+     {{form.rejected2|add_class:'form-check-input'|attr:'id:gridCheck1'}}  
+     {{form.rejected2.errors}} 
+     <label class="form-check-label" for="gridCheck1">
+         (Rejected)Area Manager
+     </label>
+   </div>
+ {% endif %}
+
+
+   {% if request.user.is_CDN == True %}
+   <div class="form-check">
+       {{form.approved|add_class:'form-check-input'|attr:'id:gridCheck2'}}  
+       {{form.approved.errors}} 
+       <label class="form-check-label" for="gridCheck2">
+           Approved
+       </label>
+     </div>
+   {% endif %}
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Next</button>
+      <button type="reset" class="btn btn-secondary">Reset</button>
+    </div>
+  </form><!-- End floating Labels Form -->
+
+</section>
+{% endblock content %}
+
+
+
